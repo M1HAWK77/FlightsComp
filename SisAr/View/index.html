@@ -11,6 +11,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
     <script>
         const value = sessionStorage.getItem('userSession');
         // Obtener los datos para mostrar luego
@@ -36,41 +38,45 @@
             <li><a href="#">Sebas</a></li>
             <li><a href="#">Tacuaman</a></li>
             <li><a href="">Refresh</a></li>
+            <li ><a href="login.html">Cerrar Sesión</a></li>
         </ul>
         <div class="clearFix"></div>
     </nav>
-
     <main>
-
         <div id="principalContainer">
-            <div class="date-picker">
+            <div class="menu-horizontal">
+              <div class="menu-item">
                 Fecha ida:
                 <input type="date" id="start-date" class="inpDate">
+              </div>
+              <div class="menu-item">
                 Fecha retorno:
                 <input type="date" id="end-date" class="inpDate">
-
+              </div>
+              <div class="menu-item">
                 Ciudad Salida:
                 <input list="cities" id="inpDepCiu">
-                <datalist id="cities" class="selectCities">
-                </datalist>
-
+                <datalist id="cities" class="selectCities"></datalist>
+              </div>
+              <div class="menu-item">
                 Ciudad Llegada:
                 <input list="cities" id="inpArrCiu">
-                <datalist id="cities" class="selectCities">
-                </datalist>
-
+                <datalist id="cities" class="selectCities"></datalist>
+              </div>
+              <div class="menu-item">
                 <select name="" id="selectTripType">
-                    <option value="">Type Trip</option>
-                    <option value="Ida">Ida</option>
-                    <option value="Ida-Vuelta">Ida-Vuelta</option>
+                  <option value="">Type Trip</option>
+                  <option value="Ida">Ida</option>
+                  <option value="Ida-Vuelta">Ida-Vuelta</option>
                 </select>
-
+              </div>
+              <div class="menu-item">
                 <button type="button" class="btn btn-primary" id="searchFlight">Search</button>
+              </div>
             </div>
-
+          </div>
             <div class="clearFix"></div>
         </div>
-        <br><br><br>
         <table class="table">
             <thead>
                 <tr>
@@ -96,18 +102,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Booking the flight</h5>
+                    <h5 class="modal-title">Reservación</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="" id="formBook">
                         <span>Cantidad de personas: </span>
-                        <input type="number" id="numPersons">
-
+                        <input type="number" id="numPersons" min="1">
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="saveAdd">Reserve</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="saveAdd">Reservar</button>
                 </div>
 
                 </form>

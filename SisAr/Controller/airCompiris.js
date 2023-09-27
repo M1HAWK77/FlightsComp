@@ -4,7 +4,7 @@ $(document).ready(function () {
     var numFlight = "";
 
     $.ajax({
-        url: "http://localhost/6toSemestre/GestionDePruebas/compiFlights/SisAr/Controller/restFlights.php",
+        url: "http://localhost/FlightsComp/SisAr/Controller/restFlights.php",
         type: "GET",
         dataType: "json",
         success: function (datos) {
@@ -48,7 +48,7 @@ $(document).ready(function () {
         //alert(dateDep.toString()+dateArr.toString()+cityArr+cityDep+typeTrip);
 
         $.ajax({
-            url: "http://localhost/6toSemestre/GestionDePruebas/compiFlights/SisAr/Controller/restFlights.php",
+            url: "http://localhost/FlightsComp/SisAr/Controller/restFlights.php",
             type: "POST",
             data: {
                 'departureCity': cityDep,
@@ -102,7 +102,7 @@ $(document).ready(function () {
         var arrayValue = value.split(",");
         alert(numFlight);
 
-        route= "http://localhost/6toSemestre/GestionDePruebas/compiFlights/SisAr/Controller/restFlights.php?idFlightBelong="+numFlight+"&dniUser="+arrayValue[0]+"&numTickets="+amountTickets;
+        route= "http://localhost/FlightsComp/SisAr/Controller/restFlights.php?idFlightBelong="+numFlight+"&dniUser="+arrayValue[0]+"&numTickets="+amountTickets;
 
 
         $.ajax({

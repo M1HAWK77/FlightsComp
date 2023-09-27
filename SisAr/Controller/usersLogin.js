@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#formLogin").submit(function (e) {
         userName = $("#userLogin").val();
         userPw = $("#userPw").val();
-        route = "http://localhost/6toSemestre/GestionDePruebas/compiFlights/SisAr/Controller/restPerson.php?user=" + userName.trim() + "&pw=" + userPw.trim();
+        route = "http://localhost/FlightsComp/SisAr/Controller/restPerson.php?user=" + userName.trim() + "&pw=" + userPw.trim();
         alert(route);
 
         $.ajax({
@@ -34,7 +34,7 @@ $(document).ready(function () {
         alert(dniR+ nameUserR+ lnameUserR+ userR+ pwR);
 
         $.ajax({
-            url: "http://localhost/6toSemestre/GestionDePruebas/compiFlights/SisAr/Controller/restPerson.php",
+            url: "http://localhost/FlightsComp/SisAr/Controller/restPerson.php",
             type: "POST",
             data:{
                 dni: dniR,
@@ -56,3 +56,4 @@ $(document).ready(function () {
 function createSession(us){
     sessionStorage.setItem('userSession', us);
 }
+

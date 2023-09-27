@@ -1,31 +1,41 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box; /* Añade esta propiedad para evitar problemas de cálculo de tamaño */
 }
 
 #header {
   width: 100%;
   height: 100px;
-  background-color: rgb(13, 13, 221);
+  background-image: url("../Images/fondo_header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-color: #1d5cbb;*/
   color: white;
   text-align: center;
-  /* line-height: 120px; */
+  margin: 0 auto;
+  font-family: 'Mooli', sans-serif;
 }
 
-#header h1{
+#header h1 {
   line-height: 90px;
+}
 
+#menu ul {
+  list-style: none;
 }
 
 #menu ul li {
-  list-style: none;
-  display: block;
-  float: left;
+  display: inline-block; /* Cambia de float: left a inline-block */
   border-right: 1px solid #ccc;
+  margin-right: 10px; /* Espacio entre elementos del menú */
+}
+
+#menu ul li:last-child {
+  margin-right: 0; /* Quita el margen derecho del último elemento */
 }
 
 #menu ul li a {
-  display: block;
   text-decoration: none;
   color: #444;
   padding: 15px;
@@ -33,14 +43,15 @@
 
 #menu {
   background-color: #eee;
-  align-items: center;
+  text-align: center;
+  padding: 10px 0; /* Espaciado vertical en la barra de navegación */
 }
 
-#menu ul li:hover a{
+#menu ul li:hover a {
   color: white;
 }
 
-#menu ul li:hover{
+#menu ul li:hover {
   background-color: rgb(0, 0, 243);
   cursor: pointer;
 }
@@ -48,10 +59,11 @@
 #principalContainer {
   width: 85%;
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .clearFix {
-  float: none;
   clear: both;
 }
 
@@ -59,14 +71,100 @@
   height: 30px;
   border-radius: 5px;
   box-shadow: 0px 1px 1px 1px;
+  width: 100%; /* Asegura que los elementos de entrada sean 100% de ancho */
+  margin-bottom: 10px; /* Espaciado entre elementos de entrada */
 }
 
 .date-picker {
-  display: block;
-  float: left;
   padding: 15px;
 }
 
-.date-picker input, select {
+.date-picker input,
+.date-picker select {
   margin-right: 20px;
+  margin-bottom: 10px; /* Espaciado entre elementos de entrada */
+}
+
+.menu-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-item {
+  margin-right: 10px; /* Espacio entre elementos del menú */
+}
+
+.table{
+  overflow-x: auto;
+  font-family: 'Inclusive Sans', sans-serif;
+}
+table {
+  width: 100%;
+  border-collapse: collapse; /* Combina bordes de celdas */
+}
+
+table, th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+
+@media screen and (max-width: 768px) {
+  /* Estilos para pantallas con un ancho máximo de 768px (tabletas y móviles) */
+
+  #header {
+    height: auto; /* Altura automática para adaptarse al contenido */
+    padding: 10px 0; /* Espaciado en el encabezado */
+  }
+
+  #header h1 {
+    line-height: 1.2; /* Cambia la altura de línea para el encabezado */
+  }
+
+  #menu ul {
+    text-align: center; /* Centra los elementos del menú */
+    padding-top: 10px; /* Espaciado en la parte superior de la barra de navegación */
+  }
+
+  #menu ul li {
+    display: block; /* Cambia a display block para que los elementos estén uno debajo del otro */
+    margin: 0; /* Quita cualquier margen anteriormente definido */
+    padding: 10px 0; /* Espaciado en cada elemento del menú */
+    border: none; /* Quita los bordes */
+  }
+
+  #menu ul li:last-child {
+    margin-bottom: 0; /* Quita el margen inferior del último elemento */
+  }
+  
+  #menu ul li a {
+    padding: 10px; /* Reduce el espaciado dentro de los enlaces */
+  }
+  .menu-horizontal {
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+  }
+  .menu-item{
+    padding: 10px;
+  }
+  .date-picker input,
+  .date-picker select {
+    margin-right: 0; /* Quita el margen derecho en dispositivos móviles */
+  }
+
+  .menu-item {
+    margin-right: 0; /* Quita el margen derecho en dispositivos móviles */
+  }
+
+  table, th, td {
+    display: block; /* Cambia a diseño de bloque */
+  }
+  
+  th, td {
+    /* Establece un ancho específico para cada columna */
+    width: 100%;
+  }
 }
