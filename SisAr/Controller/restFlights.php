@@ -15,4 +15,7 @@ switch($type){
     case "POST":
             Flights::selectFilter($_POST['departureCity'],$_POST['arrivalCity'],$_POST['departureTime'], $_POST['arrivalTime'], $_POST['typeTrip']);
         break;
+    case "PUT": 
+            Flights::reserveFlight($_GET['idFlightBelong'],$_GET['dniUser'],$_GET['numTickets']);
+            break;
 }

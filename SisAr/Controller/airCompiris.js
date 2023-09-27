@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+
+    var numFlight = "";
+
     $.ajax({
         url: "http://localhost/6toSemestre/GestionDePruebas/compiFlights/SisAr/Controller/restFlights.php",
         type: "GET",
@@ -87,8 +90,35 @@ $(document).ready(function () {
 
 
     $(document).on('click', '.btnBook', function () {
-        alert("hola");
+        fila = $(this).closest('tr');
+        numFlight = fila.find("td:eq(0)").text();
         $("#modalBook").modal("show");   
     });
+
+
+    $("#formBook").submit(function(){
+        amountTickets=$("#numPersons").val();
+        const value = sessionStorage.getItem('userSession');
+        var arrayValue = value.split(",");
+        alert(numFlight);
+
+        route= "http://localhost/6toSemestre/GestionDePruebas/compiFlights/SisAr/Controller/restFlights.php?idFlightBelong="+numFlight+"&dniUser="+arrayValue[0]+"&numTickets="+amountTickets;
+
+
+        $.ajax({
+            url: route,
+            type: "PUT",
+            data: {
+                'idFlightBelong': numFlight,
+                'dniUser': arrayValue[0],
+                'numTickets':amountTickets
+            },
+            success: function (msg) {
+                alert(msg);
+            }
+
+        })
+        
+    }); 
 
 })

@@ -39,4 +39,19 @@ class Flights
         $data = $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
         print_r(json_encode($data));
     }
+
+
+    public static function reserveFlight($idFlight, $personData, $numTickets){
+        $connection = Connection::getConnection();
+        $query = "INSERT INTO flightdetails (idFlightBelong, dniUser) VALUES ('$idFlight','$personData')";
+        $queryUpdate = "UPDATE flights SET availableSeats=availableSeats - '$numTickets' WHERE idFlight='$idFlight'";
+        $preparedStatementUpdate= $connection->prepare($queryUpdate);
+        $preparedStatementUpdate->execute();
+        
+        $preparedStatement= $connection->prepare($query);
+        $preparedStatement->execute();
+        $msg = "Process finished";
+        print_r(json_encode($msg));
+    }
+
 }
